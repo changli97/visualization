@@ -34,8 +34,8 @@
 
 
 # Dataset Introduction
-The current population of the United States of America is 334,464,117 as of Saturday, April 16, 2022, based on Worldometer elaboration of the latest United Nations data. 
-
+I got this dataset on the kaggle, this dataset discribe the current population of the United States of America, based on Worldometer elaboration of the latest United Nations data. 
+And I want to figure out the trend of population increase from visulization.
 ## Main Attributes
 
 * Year
