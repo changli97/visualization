@@ -1,0 +1,89 @@
+// INTRO:
+
+// (1) we will be using a text editor to modify this index.idyll file.  I use emacs a lot for work, so that is what I'm using here.  Its also setup to have some nice markdown preferences and colorings which your editor may or may not have if you are using emacs.  I've linked more info in the notes doc.
+
+// Emacs preferences: 
+
+// Vanilla Emacs: You can use ` CTRL-x CTRL-+ ' and 'CTRL-x CTRL--' ( 'text-scale-adjust' ) to increase or decrease 
+
+// Markdown styling following: https://jblevins.org/projects/markdown-mode/
+
+// But also including special styling for Idyll: spring2020/week12/markdown-mode.el, AND make sure you delete markdown-mode.elc in .emacs.d
+
+// NOTE: gotta have a return after the lines
+
+
+// We want to have this same outline for our page, but we'll change a few things here.
+
+// First, the metadata that goes along with this webpage -- this is the stuff that shows up in the tab
+[meta title:"IS590DV Idyll Website" description:"Corgs corgs corgs!" /]
+
+// You'll note that once we save our browser is re-loaded and our locally hosted webpage is re-generated.
+
+// We also want to update the header that appears on our post:
+[Header
+  fullWidth:true
+  title:"IS445 Idyll Website"
+  subtitle:"Super cool viz for super cool people."
+  author:"Chang Li"
+  date:`(new Date()).toDateString()`
+  background:"#222222"
+  color:"#ffffff"
+   /]
+
+
+
+# Dataset Introduction
+The current population of the United States of America is 334,464,117 as of Saturday, April 16, 2022, based on Worldometer elaboration of the latest United Nations data. 
+
+## Main Attributes
+
+* Year
+* Population
+* Yearly % Change
+* Yearly Change
+* Median Age
+* U.S. Global Rank
+
+
+
+## Data
+
+Now we can load this dataset with:
+
+```
+[data name:"uspop" source:"population_usa.csv" /]
+```
+
+[data name:"uspop" source:"population_usa.csv" /]
+
+
+[Table data:uspop /]
+
+### Simple Scatter plots
+
+Let's start with some simple scatter plots of our data.
+
+We can run the simple code below and make a starter line plot of country and years born:
+
+```
+[IdyllVegaLite data:uspop spec:`{
+  width: 400,
+  height: 200,
+  mark: "line",
+  encoding: {
+    x: {field: "Years", type: "temporal", axis:{title:"Year", format:"%Y"}},
+    y: {field: "Population", type: "quantitative"},
+  }
+}` /]
+```
+
+[IdyllVegaLite data:uspop spec:`{
+  width: 400,
+  height: 200,
+  mark: "line",
+  encoding: {
+    x: {field: "Year", type: "temporal", axis:{title:"Year", format:"%Y"}},
+    y: {field: "Population", type: "quantitative"},
+  }
+}` /]
